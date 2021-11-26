@@ -20,6 +20,8 @@ def process(path):
         for file in glob.glob("*.parquet"):
             convert(file, get_csv_name(file))
     elif os.path.isfile(path):
+        file = os.path.basename(path)
+        os.chdir(os.path.dirname(path))
         convert(path, get_csv_name(file))
 
 
